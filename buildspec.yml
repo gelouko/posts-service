@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    DOCKER_USERNAME: "dockergiu"
+  parameter-store:
+    DOCKER_PASSWORD: "DOCKER_PASSWORD"
+
+proxy:
+  upload-artifacts: yes
+  logs: yes
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - mvnw clean package -DskipTests
+  build:
+    commands:
+      - mvnw dockerfile:build
+  post_build:
+    commands:
+      - mvnw dockerfile:push
+artifacts:
+  files:
+    - Dockerfile
+    - target/*.jar
+  name: post-service-$(date +%Y-%m-%d)
