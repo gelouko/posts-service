@@ -8,7 +8,7 @@ import br.com.itau.postservice.jsonplaceholder.payload.CommentPayload;
 import br.com.itau.postservice.model.Comment;
 import br.com.itau.postservice.model.Post;
 import br.com.itau.postservice.repository.CommentsRepository;
-import br.com.itau.postservice.repository.PostRepository;
+import br.com.itau.postservice.repository.PostsRepository;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,15 +26,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommentsController {
 
     private JsonPlaceholderClient jsonPlaceholderClient;
-    private PostRepository postRepository;
+    private PostsRepository postsRepository;
     private CommentsRepository commentsRepository;
 
     @Autowired
     public CommentsController(JsonPlaceholderClient jsonPlaceholderClient,
-            PostRepository postRepository,
+            PostsRepository postsRepository,
             CommentsRepository commentsRepository) {
         this.jsonPlaceholderClient = jsonPlaceholderClient;
-        this.postRepository = postRepository;
+        this.postsRepository = postsRepository;
         this.commentsRepository = commentsRepository;
     }
 
@@ -45,7 +45,7 @@ public class CommentsController {
 
     @PostMapping
     public void save() {
-        if (postRepository.count() > 0) {
+        if (postsRepository.count() > 0) {
             throw new PostServiceException(DATABASE_ALREADY_POPULATED);
         }
 
@@ -54,7 +54,7 @@ public class CommentsController {
         Map<Long, List<CommentPayload>> postComments = commentPayloads.stream()
                 .collect(Collectors.groupingBy(CommentPayload::getPostId));
 
-        List<Post> posts = postRepository
+        List<Post> posts = postsRepository
                 .saveAll(jsonPlaceholderClient.fetchPosts(postComments.keySet()).stream()
                         .map(Post::new).collect(Collectors.toSet()));
 

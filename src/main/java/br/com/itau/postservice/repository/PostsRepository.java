@@ -6,7 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface PostRepository extends JpaRepository<Post, Long> {
+public interface PostsRepository extends JpaRepository<Post, Long> {
 
     @Query("select p, count(c.id) as comments from Post p inner join Comment c on p.id = c"
             + ".post group by p.id order by comments desc")

@@ -1,7 +1,7 @@
 package br.com.itau.postservice.controller;
 
 import br.com.itau.postservice.model.Post;
-import br.com.itau.postservice.repository.PostRepository;
+import br.com.itau.postservice.repository.PostsRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("posts")
 public class PostsController {
 
-    private PostRepository postRepository;
+    private PostsRepository postsRepository;
 
     @Autowired
-    public PostsController(PostRepository postRepository) {
-        this.postRepository = postRepository;
+    public PostsController(PostsRepository postsRepository) {
+        this.postsRepository = postsRepository;
     }
 
     @GetMapping
     public Page<Post> list(Pageable pageable) {
-        return postRepository.findAll(pageable);
+        return postsRepository.findAll(pageable);
     }
 
     @GetMapping("top")
     public List<Post> listTop() {
         PageRequest pageRequest = PageRequest.of(0, 5);
-        return postRepository.findTopPosts(pageRequest);
+        return postsRepository.findTopPosts(pageRequest);
     }
 
 }

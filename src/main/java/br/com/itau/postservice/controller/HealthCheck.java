@@ -11,4 +11,5 @@ public class HealthCheck {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public void healthCheck() {}
+
 }
