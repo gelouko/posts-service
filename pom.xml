@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.itau</groupId>
 	<artifactId>postservice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>postservice</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -71,7 +71,7 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.4.9</version>
+				<version>1.4.5</version>
 				<configuration>
 					<repository>${docker.image.repository}/${project.artifactId}</repository>
 					<tag>${project.version}</tag>
