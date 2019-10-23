@@ -27,5 +27,5 @@ phases:
 artifacts:
   files:
     - Dockerfile
-    - target/*.jar
+    - target/
   name: post-service-$(date +%Y-%m-%d)
