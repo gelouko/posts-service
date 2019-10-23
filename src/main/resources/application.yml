@@ -2,4 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
   flyway:
-    enabled: false
+    enabled: true
+
+json-placeholder-api:
+  base-url: https://jsonplaceholder.typicode.com
