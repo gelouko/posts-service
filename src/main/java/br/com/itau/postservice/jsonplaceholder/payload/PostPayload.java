@@ -1,6 +1,6 @@
 package br.com.itau.postservice.jsonplaceholder.payload;
 
-public class Post {
+public class PostPayload {
     private Long userId;
     private Long id;
     private String title;

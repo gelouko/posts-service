@@ -1,6 +1,6 @@
 package br.com.itau.postservice.jsonplaceholder.payload;
 
-public class Comment {
+public class CommentPayload {
     private Long postId;
     private Long id;
     private String name;
