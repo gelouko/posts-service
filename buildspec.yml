@@ -26,6 +26,5 @@ phases:
       - ./mvnw dockerfile:push -Ddockerfile.username=$DOCKER_USERNAME -Ddockerfile.password=$DOCKER_PASSWORD
 artifacts:
   files:
-    - Dockerfile
-    - /target/**/*
+    - '**/*'
   name: post-service-$(date +%Y-%m-%d)
