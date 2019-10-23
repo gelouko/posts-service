@@ -16,13 +16,13 @@ phases:
       docker: 18
   pre_build:
     commands:
-      - mvnw clean package -DskipTests
+      - ./mvnw clean package
   build:
     commands:
-      - mvnw dockerfile:build
+      - ./mvnw dockerfile:build
   post_build:
     commands:
-      - mvnw dockerfile:push
+      - ./mvnw dockerfile:push
 artifacts:
   files:
     - Dockerfile
