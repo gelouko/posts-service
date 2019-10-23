@@ -2,7 +2,8 @@ package br.com.itau.postservice.exceptions;
 
 public enum PostServiceExceptionType {
     GENERIC_ERROR(1, "An unexpected error has occured."),
-    JSON_PLACEHOLDER_RESPONSE_ERROR(2, "Error received from the JSON Placeholder API.");
+    JSON_PLACEHOLDER_RESPONSE_ERROR(2, "Error received from the JSON Placeholder API."),
+    DATABASE_ALREADY_POPULATED(3, "Database is already populated.");
 
     private Integer code;
     private String defaultMessage;

@@ -12,4 +12,8 @@ public class PostServiceException extends RuntimeException {
     public PostServiceExceptionType getType() {
         return type;
     }
+
+    public PostServiceError toError() {
+        return new PostServiceError(getMessage(), type);
+    }
 }
