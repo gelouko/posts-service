@@ -1,6 +1,5 @@
 package br.com.itau.postservice.controller;
 
-import br.com.itau.postservice.jsonplaceholder.JsonPlaceholderClient;
 import br.com.itau.postservice.model.Post;
 import br.com.itau.postservice.repository.PostRepository;
 import java.util.List;

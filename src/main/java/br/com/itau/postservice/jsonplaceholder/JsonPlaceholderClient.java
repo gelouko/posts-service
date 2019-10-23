@@ -5,7 +5,6 @@ import static br.com.itau.postservice.exceptions.PostServiceExceptionType.JSON_P
 import br.com.itau.postservice.exceptions.PostServiceException;
 import br.com.itau.postservice.jsonplaceholder.payload.CommentPayload;
 import br.com.itau.postservice.jsonplaceholder.payload.PostPayload;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
