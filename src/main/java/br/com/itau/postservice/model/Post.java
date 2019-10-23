@@ -1,5 +1,7 @@
 package br.com.itau.postservice.model;
 
+import br.com.itau.postservice.jsonplaceholder.payload.PostPayload;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.Instant;
 import java.util.Set;
 import javax.persistence.Entity;
@@ -16,7 +18,6 @@ import org.hibernate.validator.constraints.Length;
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToMany(mappedBy = "post")
@@ -38,10 +39,15 @@ public class Post {
 
     protected Post() {}
 
-    public Post(Long id, String title, String body) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
+    public Post(PostPayload payload) {
+        this.id = payload.getId();
+        this.title = payload.getTitle();
+        this.body = payload.getBody();
+    }
+
+    @JsonIgnore
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {

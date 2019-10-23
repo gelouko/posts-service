@@ -1,6 +1,7 @@
 package br.com.itau.postservice.model;
 
 
+import br.com.itau.postservice.jsonplaceholder.payload.CommentPayload;
 import java.time.Instant;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +20,6 @@ import org.hibernate.validator.constraints.Length;
 public class Comment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne(targetEntity = Post.class)
@@ -45,16 +45,20 @@ public class Comment {
 
     protected Comment() {}
 
-    public Comment(Long id, Post post, String name, String email, String body) {
-        this.id = id;
+    public Comment(CommentPayload payload, Post post) {
+        this.id = payload.getId();
         this.post = post;
-        this.name = name;
-        this.email = email;
-        this.body = body;
+        this.name = payload.getName();
+        this.email = payload.getEmail();
+        this.body = payload.getBody();
     }
 
     public Post getPost() {
         return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
     }
 
     public String getName() {
