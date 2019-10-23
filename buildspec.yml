@@ -23,7 +23,7 @@ phases:
       - ./mvnw dockerfile:build
   post_build:
     commands:
-      - ./mvnw dockerfile:push
+      - ./mvnw dockerfile:push -Ddockerfile.username=$DOCKER_USERNAME -Ddockerfile.password=$DOCKER_PASSWORD
 artifacts:
   files:
     - Dockerfile
