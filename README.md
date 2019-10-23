@@ -57,3 +57,9 @@ Principais serviços AWS:
 ## Possíveis improvements
 - Utilizar filas para realizar interações com terceiros de forma asíncrona (SQS, ActiveMQ, etc.)
 - Utilizar um DB orientado a documentos (DocumentDB, Mongo, etc.)
+- Utilizar Cloud config (ou similar) para gerenciamento das configs / secrets
+- Integrate!
+  - Splunk para streaming de logs + integracão com sdk (versão free :nice:)
+  - Checkmarx para análise de segurança (estática) de código
+  - IQ Server para análise de segurança de dependências
+- ...Sempre dá pra melhorar!
