@@ -17,7 +17,7 @@ phases:
   pre_build:
     commands:
       - export MAVEN_CONFIG=''
-      - ./mvnw clean package
+      - ./mvnw clean package -DskipTests
   build:
     commands:
       - ./mvnw dockerfile:build
