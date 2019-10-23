@@ -16,6 +16,7 @@ phases:
       docker: 18
   pre_build:
     commands:
+      - export MAVEN_CONFIG=''
       - ./mvnw clean package
   build:
     commands:
